@@ -63,9 +63,15 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.coroutines.core)
+
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+        }
+        wasmJsMain.dependencies {
+            implementation(npm("@js-joda/timezone", "2.3.0"))
         }
     }
 }
@@ -106,6 +112,10 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
+//dependencies {
+//    implementation(libs.androidx.material3.android)
+//    implementation(libs.androidx.material3.desktop)
+//}
 
 compose.desktop {
     application {
